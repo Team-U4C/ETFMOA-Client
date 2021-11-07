@@ -1,5 +1,5 @@
-.rect{
-  width: 15rem;
+.rect {
+  width: 10rem;
   height: 95%;
   border: 1px solid grey;
   opacity: 0.8;
@@ -11,24 +11,27 @@
   margin-right: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-}
 
-.incrementRatio{
-  margin-top: 1rem;
-  font-weight: bold;
-  font-size:xx-large;
-}
-
-.price-row{
-  display: flex;
-  margin-top: 0.5rem;
-  justify-content: space-between;
-  .price{
-    color:red
-  
+  .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
-  .increment{
+  .incrementRatio {
+    margin-top: 1rem;
     font-weight: bold;
-    color:red
+  }
+
+  .price-row {
+    display: flex;
+    margin-top: 0.5rem;
+    justify-content: space-between;
+    .price {
+      color: red;
+    }
+    .increment {
+      font-weight: bold;
+      color: red;
+    }
   }
 }
