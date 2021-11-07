@@ -1,7 +1,16 @@
-import './App.css'
+import './App.scss'
 import React, { useRef, useEffect, useState } from 'react'
 import { select, selectAll, hierarchy, treemap } from 'd3'
-import { dummyData } from './dummyData'
+
+// dummy data
+import { dummyData, yieldTop10DummyData } from './dummyData'
+
+// components
+import { ETFSummaryInfoItem } from './components/ETFSummaryInfoItem'
+
+// library
+import * as _ from 'lodash'
+
 const useResizeObserver = (ref) => {
   const [dimensions, setDimensions] = useState(null)
   useEffect(() => {
@@ -98,6 +107,16 @@ function App() {
   let root = treemap(dummyData)
   return (
     <React.Fragment>
+      <div className='top10-yield'>
+        {
+          _.map(yieldTop10DummyData.data, (v,i)=>
+            <ETFSummaryInfoItem name={v.name}
+            investManager={v.investManager}
+            incrementRatio={v.incrementRatio}
+            price={v.price} 
+            increment={v.increment}/>) 
+        }
+      </div>
       <div ref={wrapperRef}>
         <svg ref={svgRef}></svg>
       </div>

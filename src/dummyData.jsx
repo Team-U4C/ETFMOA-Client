@@ -57,3 +57,57 @@ export let dummyData = {
     },
   ],
 }
+
+
+export let yieldTop10DummyData = {
+  data: [
+    {
+      name:'IT플러스',
+      investManager:'KODEX',
+      incrementRatio: '4.31%',
+      price: '11,860',
+      increment: '440'
+    },
+    {
+      name:'필리핀MSCI(합성)',
+      investManager:'KINDEX',
+      incrementRatio: '3%',
+      price:'16,150',
+      increment: '395',
+
+
+    },
+    {
+      name:'게임산업',
+      investManager:'KODEX',
+      incrementRatio: '2.51%',
+      price: '15,100',
+      increment: '550',
+
+    },
+    {
+      name:'레버리지 나스닥 100 ETN',
+      investManager:'KB',
+      incrementRatio: '2.3%',
+      price:'20,500',
+      increment: '395'
+
+    },
+    {
+      name:'미국나스닥기술주',
+      investManager:'ARIRANG',
+      incrementRatio: '2.21%',
+      price:'105,000',
+      increment: '860'
+
+    },
+    {
+      name:'코스닥150선물레버리지',
+      investManager:'KOSEF',
+      incrementRatio: '2.05%',
+      price:'32,650',
+      increment: '1,150'
+
+    }
+  ]
+}
