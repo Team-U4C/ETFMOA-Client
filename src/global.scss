@@ -1,13 +1,14 @@
-$text-xs-size: 1rem;
-$text-sm-size: 1.1rem;
-$text-base-size: 1.3rem;
-$text-lg-size: 1.5rem;
-$text-xl-size: 1.6rem;
-$text-xxl-size: 1.9rem;
-$text-xxxl-size: 2.9rem;
+$text-xs-size: 0.5rem;
+$text-sm-size: 0.6rem;
+$text-base-size: 0.7rem;
+$text-lg-size: 0.75rem;
+$text-xl-size: 0.8rem;
+$text-xxl-size: 0.9rem;
+$text-xxxl-size: 1rem;
 
-$text-sm-line-height: 0.8rem;
-$text-lg-line-height: 1.3rem;
+$text-sm-line-height: 0.6rem;
+$text-lg-line-height: 0.8rem;
+$text-xl-line-height: 1rem;
 
 .text-xs {
   font-size: $text-xs-size;
@@ -31,9 +32,9 @@ $text-lg-line-height: 1.3rem;
 }
 .text-xxl {
   font-size: $text-xxl-size;
-  line-height: $text-lg-line-height;
+  line-height: $text-xl-line-height;
 }
 .text-xxxl {
   font-size: $text-xxxl-size;
-  line-height: $text-lg-line-height;
+  line-height: $text-xl-line-height;
 }

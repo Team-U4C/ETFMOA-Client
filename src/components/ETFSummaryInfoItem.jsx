@@ -25,12 +25,20 @@ export const ETFSummaryInfoItem = ({
           onClick()
         }}
       >
-        <div className="investManager">{investManager}</div>
-        <div className="name">{name}</div>
-        <div className="incrementRatio text-xs">{incrementRatio}</div>
+        <div className="header-row">
+          <div className="investManager text-sm">{investManager}</div>
+          <div className="rank text-sm">{rank + 1}</div>
+        </div>
+        <div className="name text-base">{name}</div>
+        <div className="incrementRatio text-xxl">{incrementRatio}</div>
         <div className="price-row">
-          <div className="price">{price}</div>
-          <div className="increment">{increment}</div>
+          <div className="price text-sm">{price}</div>
+          <div className="increment text-sm">{increment}</div>
+        </div>
+        <div className="horizon-bar"></div>
+        <div className="bottom-row">
+          <div className="tradingVolume-title ">{'거래량'}</div>
+          <div className="tradingVolume">{'147.3K'}</div>
         </div>
       </div>
     </React.Fragment>

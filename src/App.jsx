@@ -145,6 +145,7 @@ function App() {
         {_.map(yieldTop10DummyData.data, (v, i) => (
           <ETFSummaryInfoItem
             key={i}
+            rank={i}
             name={v.name}
             investManager={v.investManager}
             incrementRatio={v.incrementRatio}
