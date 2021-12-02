@@ -1,0 +1,40 @@
+$text-xs-size: 0.5rem;
+$text-sm-size: 0.6rem;
+$text-base-size: 0.7rem;
+$text-lg-size: 0.75rem;
+$text-xl-size: 0.8rem;
+$text-xxl-size: 0.9rem;
+$text-xxxl-size: 1rem;
+
+$text-sm-line-height: 0.6rem;
+$text-lg-line-height: 0.8rem;
+$text-xl-line-height: 1rem;
+
+.text-xs {
+  font-size: $text-xs-size;
+  line-height: $text-sm-line-height;
+}
+.text-sm {
+  font-size: $text-sm-size;
+  line-height: $text-sm-line-height;
+}
+.text-base {
+  font-size: $text-base-size;
+  line-height: $text-lg-line-height;
+}
+.text-lg {
+  font-size: $text-lg-size;
+  line-height: $text-lg-line-height;
+}
+.text-xl {
+  font-size: $text-xl-size;
+  line-height: $text-lg-line-height;
+}
+.text-xxl {
+  font-size: $text-xxl-size;
+  line-height: $text-xl-line-height;
+}
+.text-xxxl {
+  font-size: $text-xxxl-size;
+  line-height: $text-xl-line-height;
+}
