@@ -1,0 +1,11 @@
+.etf-detail-page-contents{
+  width: 100%;
+  margin-top: 10rem;
+  position: absolute;
+  z-index: -1;
+  .etf-detail-page-item-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+}

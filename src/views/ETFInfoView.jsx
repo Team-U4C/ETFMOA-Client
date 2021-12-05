@@ -15,7 +15,7 @@ import './ETFInfoView.scss'
 export function ETFInfoView() {
   const { itemId } = useParams()
   const navigate = useNavigate()
-  const [pageType, setPageType] = useState(1)
+  const [pageType, setPageType] = useState(0)
 
   let pages = [<SingleStockDetailPage />, <ETFDetailPage />, <KeywordDetailPage />]
   return (

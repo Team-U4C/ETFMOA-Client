@@ -1,6 +1,5 @@
 import './App.scss'
-import React, { useRef, useEffect, useState } from 'react'
-import { select, selectAll, hierarchy, treemap } from 'd3'
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 // views
@@ -13,7 +12,6 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<MainView />} />
-
           <Route path="/detail/:itemId" element={<ETFInfoView />} />
         </Routes>
       </Router>

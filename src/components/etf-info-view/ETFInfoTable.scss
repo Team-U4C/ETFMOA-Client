@@ -1,8 +1,25 @@
 .etf-info-table-wrap {
-  width: 59rem;
+  width: 68rem;
+  margin-bottom: 2rem;
   .etf-info-splitter {
     width: 100%;
     border-bottom: 0.025rem solid #cccccc;
+  }
+  .etf-info-table-ci-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    .etf-info-table-ci-img{
+      width:9.5rem;
+      height:2.5rem;
+    }
+    .etf-info-table-ci-name{
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1rem;
+      line-height: 0.9rem;
+    }
   }
   .content-wrap {
     width: 100%;
@@ -138,6 +155,42 @@
           color: #000000;
         }
       }
+      .share-ratio-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #000000;
+        }
+      }
+      .category-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #000000;
+        }
+      }
     }
 
     .right-side {
@@ -152,6 +205,146 @@
         justify-content: space-between;
         font-size: 0.8rem;
         line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #DD2626;
+        }
+      }
+      .increment-ratio-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #DD2626;
+        }
+      }
+      .nav-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+      .trading-volume-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+      .transaction-amount-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+      .transaction-amount-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+      .market-cap-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+      .tracked-index-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+      .asset-management-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
         .etf-info-table-title {
           font-style: normal;
           font-weight: normal;
