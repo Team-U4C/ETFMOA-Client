@@ -1,0 +1,41 @@
+.tab-row {
+  display: flex;
+  flex-direction: row;
+  width: 68rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  .tab {
+    width: 3rem;
+    height: 1.5rem;
+    background-color: #ef6c35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .unselected-tab {
+    width: 3rem;
+    height: 1.5rem;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .selected {
+    color: #ffffff;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8rem;
+    line-height: 0.95rem;
+  }
+  .unselected {
+    color: #ef6c35;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8rem;
+    line-height: 0.95rem;
+  }
+}

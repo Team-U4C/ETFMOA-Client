@@ -32,8 +32,23 @@ export const ETFSummaryInfoItem = ({
         <div className="name text-base">{name}</div>
         <div className="incrementRatio text-xxl">{incrementRatio}</div>
         <div className="price-row">
-          <div className="price text-sm">{price}</div>
-          <div className="increment text-sm">{increment}</div>
+          {Number(increment) >= 0 ? (
+            <div className="price-up text-sm">{price}</div>
+          ) : (
+            <div className="price-down text-sm">{price}</div>
+          )}
+
+          {Number(increment) >= 0 ? (
+            <div className="increment-block">
+              <img className="updown-img" src="/assets/images/mainview/up.png" />
+              <div className="increment-up text-sm">{increment}</div>
+            </div>
+          ) : (
+            <div className="increment-block">
+              <img className="updown-img" src="/assets/images/mainview/down.png" />
+              <div className="increment-down text-sm">{increment.substring(1)}</div>
+            </div>
+          )}
         </div>
         <div className="horizon-bar"></div>
         <div className="bottom-row">

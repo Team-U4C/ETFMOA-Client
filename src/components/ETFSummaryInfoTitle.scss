@@ -1,0 +1,28 @@
+.title-row {
+  width: 68rem;
+  color: #ef6c35;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+
+  .title-block {
+    display: flex;
+    align-items: center;
+    .title {
+      font-size: 1.5rem;
+      line-height: 1.75rem;
+      margin-right: 0.325rem;
+    }
+    .arrow-image {
+      width: 0.6rem;
+      height: 1rem;
+    }
+  }
+
+  .sub-title {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+}

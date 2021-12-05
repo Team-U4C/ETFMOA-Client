@@ -1,50 +1,93 @@
 .main-view {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 100%;
   .logo {
+    margin-top: 9.5rem;
     margin-bottom: 1.4rem;
     .logo-image {
       width: 20rem;
       height: 6rem;
     }
   }
+  // .search-bar {
+  //   display: flex;
+  //   height: 3rem;
+
+  //   .bar {
+  //     width: 34rem;
+  //     border: 0 solid black;
+  //     padding-left: 1rem;
+  //     background-color: antiquewhite;
+  //     &:focus {
+  //       outline: none;
+  //     }
+  //   }
+  //   .button {
+  //     position: absolute;
+  //     height: 3rem;
+  //     width: 4rem;
+  //     background-color: #ef6c35;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     .button-image {
+  //       width: 1.5rem;
+  //       height: 1.5rem;
+  //     }
+  //   }
+  // }
   .search-bar {
     display: flex;
-    height: 3rem;
-
     .bar {
       width: 34rem;
-      border: 0 solid black;
-      padding-left: 1rem;
-      background-color: antiquewhite;
-      &:focus {
-        outline: none;
-      }
     }
     .button {
-      height: 3rem;
-      width: 4rem;
-      background-color: #ef6c35;
+      height: 2rem;
+      width: 3rem;
+      background-color: rgba(239, 108, 53, 0.67);
       display: flex;
       justify-content: center;
       align-items: center;
+      border-radius: 0.25rem;
       .button-image {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1rem;
+        height: 1rem;
       }
     }
   }
+
   .top10-yield {
     height: 8rem;
-    // width: 100%;
+    width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: nowrap;
     overflow-x: auto;
     -ms-overflow-style: none;
     margin-bottom: 3rem;
   }
+
   .top10-yield::-webkit-scrollbar {
     display: none;
+  }
+}
+
+.etf-contents {
+  width: 100%;
+  margin-top: 21.5rem;
+  position: absolute;
+  z-index: -1;
+  .etf-contents-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  .etf-summary-info-item-wrap {
+    display: flex;
+    justify-content: center;
   }
 }

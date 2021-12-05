@@ -1,9 +1,15 @@
+//libraries
 import React, { useRef, useEffect, useState } from 'react'
+import { select, selectAll, hierarchy, treemap } from 'd3'
 
+import './TreeMap.scss'
+//dummyData
+import {dummyData} from './../../dummyData'
 let stockTiles
 let hierarchyData
 let isDrawn = false
 let durationTime = 700
+//TODO: 반응형이 아니라 부모의 WIDTH, HEIGHT를 고정시켜 아래의 함수가 실행되지 않음 
 const useResizeObserver = (ref) => {
   const [dimensions, setDimensions] = useState(null)
   useEffect(() => {
@@ -21,7 +27,7 @@ const useResizeObserver = (ref) => {
   return dimensions
 }
 
-function TreeMap() {
+export function TreeMap() {
   const [data, setData] = useState(dummyData.data[0])
   const svgRef = useRef()
   const wrapperRef = useRef()
@@ -116,7 +122,7 @@ function TreeMap() {
 
   useEffect(() => {
     if (!dimensions) return
-    //drawTreeMap()
+    drawTreeMap()
     isDrawn = true
   }, [dimensions])
 
@@ -126,13 +132,14 @@ function TreeMap() {
       .sort((a, b) => b.ratio - a.ratio)
 
     if (!dimensions) return
-    //drawTreeMap()
+    drawTreeMap()
   }, [data])
 
-  return {
-    /* 
-      <div ref={wrapperRef}>
-        <svg ref={svgRef}></svg>
-      </div> */
-  }
+  return (
+   // <div className='svg-row'>
+      <div className='svg-wrapper' ref={wrapperRef}>
+        <svg className='treemap-svg' ref={svgRef}></svg>
+      </div> 
+     // </div>
+  )
 }
