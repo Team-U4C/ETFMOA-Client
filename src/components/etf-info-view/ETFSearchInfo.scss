@@ -1,0 +1,176 @@
+.search-info-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .splitter {
+    border-right: 0.025rem solid #cccccc;
+    width: 0.025rem;
+    height: 4rem;
+  }
+  .ci-cell {
+    width: 12.5rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ci-image {
+      width: 9.5rem;
+      height: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .etf-name {
+      font-size: 1rem;
+      line-height: 0.9rem;
+    }
+  }
+
+  .price-cell {
+    width: 9rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    .title {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+    .value {
+      height: 1.5rem;
+      font-size: 1.5rem;
+      line-height: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+    .unit {
+      font-size: 0.8rem;
+      line-height: 0.9rem;
+      color: #dd2626;
+    }
+  }
+
+  .increment-ratio-one-month-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    width: 6rem;
+    height: 5rem;
+    .title {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+    .value {
+      font-size: 0.9rem;
+      line-height: 0.9rem;
+      color: #358dfe;
+      margin-bottom: 1.2rem;
+    }
+    .unit {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+    }
+  }
+  .increment-ratio-three-month-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    width: 6rem;
+    height: 5rem;
+    padding-top: 1.7rem;
+    .value {
+      font-size: 0.9rem;
+      line-height: 0.9rem;
+      color: #dd2626;
+      margin-bottom: 1.2rem;
+    }
+    .unit {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+    }
+  }
+  .increment-ratio-one-year-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    width: 6rem;
+    height: 5rem;
+    padding-top: 1.7rem;
+    .value {
+      font-size: 0.9rem;
+      line-height: 0.9rem;
+      color: #dd2626;
+      margin-bottom: 1.2rem;
+    }
+    .unit {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+    }
+  }
+  .tradingVolume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    width: 6rem;
+    height: 5rem;
+    .title {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+    .value {
+      font-size: 0.8rem;
+      line-height: 0.9rem;
+    }
+  }
+  .market-cap-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    width: 6rem;
+    height: 5rem;
+    .title {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+    .value {
+      font-size: 0.8rem;
+      line-height: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+    .unit {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+    }
+  }
+  .category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    width: 6rem;
+    height: 5rem;
+    .title {
+      font-size: 0.6rem;
+      line-height: 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+    .value {
+      font-size: 0.9rem;
+      line-height: 0.9rem;
+    }
+  }
+}

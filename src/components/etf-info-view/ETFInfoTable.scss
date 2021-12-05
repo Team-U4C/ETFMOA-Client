@@ -1,0 +1,166 @@
+.etf-info-table-wrap {
+  width: 59rem;
+  .etf-info-splitter {
+    width: 100%;
+    border-bottom: 0.025rem solid #cccccc;
+  }
+  .content-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .left-side {
+      width: 26.5rem;
+      display: flex;
+      flex-direction: column;
+      .price-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+      .ytd-diff-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #308afe;
+        }
+      }
+      .increment-ratio-one-month-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #dd2626;
+        }
+      }
+      .increment-ratio-three-months-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #308afe;
+        }
+      }
+      .increment-ratio-one-year-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #dd2626;
+        }
+      }
+      .fund-compensation-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #000000;
+        }
+      }
+      .disparate-ratio-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+          color: #000000;
+        }
+      }
+    }
+
+    .right-side {
+      width: 26.5rem;
+
+      display: flex;
+      flex-direction: column;
+
+      .increment-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        .etf-info-table-title {
+          font-style: normal;
+          font-weight: normal;
+        }
+        .etf-info-table-value {
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
