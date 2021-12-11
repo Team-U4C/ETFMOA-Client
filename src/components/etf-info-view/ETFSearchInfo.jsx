@@ -16,7 +16,13 @@ export function ETFSearchInfo() {
       <div className="price-cell">
         <div className="title">{'현재가(원)'}</div>
         <div className="value">{'13530'}</div>
-        <div className="unit">{'95.00'}</div>
+        <div className="unit-block">
+          <img
+            className="unit-img"
+            src={'/assets/images/components/etf-search-info/triangle-up.png'}
+          />
+          <div className="unit">{'95.00'}</div>
+        </div>
       </div>
       <div className="splitter"></div>
 

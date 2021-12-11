@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { dummyData, yieldTop10DummyData } from '../dummyData'
 
 // components
+import { DashBoard } from '../components/main-view/DashBoard'
 import { ETFSummaryInfoItem } from '../components/main-view/ETFSummaryInfoItem'
 import { ETFSummaryInfoTitle } from '../components/ETFSummaryInfoTitle'
 import { Footer } from '../components/main-view/Footer'
@@ -18,7 +19,6 @@ import ReactSearchBox from 'react-search-box'
 // components
 import { CountryTab } from '../components/main-view/CountryTab'
 
-//TODO: div 태그에 마우스 호버링시 마우스 아이콘 클릭 아이콘으로 변경
 export function MainView() {
   const navigate = useNavigate()
   const [data, setData] = useState(dummyData.data[0])
@@ -26,15 +26,11 @@ export function MainView() {
   return (
     <React.Fragment>
       <div className="main-view">
+        <DashBoard />
         <div className="logo">
           <img className="logo-image" src="/assets/images/mainview/logo.png"></img>
         </div>
-        {/* <div className="search-bar">
-          <input className="bar text-xxl" placeholder="종목명 혹은 ETF를 검색하세요" />
-          <div className="button">
-            <img className="button-image" src="/assets/images/mainview/search-svg.svg"></img>
-          </div>
-        </div> */}
+
         <div className="search-bar">
           <div className="bar">
             <ReactSearchBox

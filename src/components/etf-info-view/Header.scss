@@ -1,9 +1,13 @@
-.header {
+.etf-info-view-header {
   display: flex;
+  margin-top: 2.5rem;
   margin-bottom: 3rem;
+  margin-left: 2rem;
   height: 100%;
+  align-items: center;
   .logo {
     margin-right: 2.8rem;
+    cursor: pointer;
     .logo-image {
       width: 13.15rem;
       height: 4.5rem;
@@ -12,11 +16,11 @@
   .search-bar {
     display: flex;
     .bar {
-      width: 34rem;
+      width: 40rem;
     }
     .button {
-      height: 2rem;
-      width: 3rem;
+      height: 3rem;
+      width: 3.5rem;
       background-color: rgba(239, 108, 53, 0.67);
       display: flex;
       justify-content: center;

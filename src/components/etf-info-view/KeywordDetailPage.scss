@@ -1,9 +1,20 @@
-.search-result {
-  width: 59rem;
-}
 .splitter {
   width: 100%;
   border-bottom: 0.025rem solid #cccccc;
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
+}
+.keyword-detail-page-contents {
+  width: 100%;
+  margin-top: 10rem;
+  position: absolute;
+  z-index: -1;
+  .keyword-detail-page-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .keyword-detail-page-search-result {
+      width: 59rem;
+    }
+  }
 }

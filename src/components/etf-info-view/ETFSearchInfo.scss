@@ -43,10 +43,18 @@
       line-height: 0.9rem;
       margin-bottom: 0.7rem;
     }
-    .unit {
-      font-size: 0.8rem;
-      line-height: 0.9rem;
-      color: #dd2626;
+    .unit-block {
+      display: flex;
+      align-items: center;
+      .unit-img {
+        width: 0.6rem;
+        height: 0.3rem;
+      }
+      .unit {
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+        color: #dd2626;
+      }
     }
   }
 

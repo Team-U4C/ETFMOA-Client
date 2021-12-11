@@ -8,8 +8,13 @@ export function Header() {
   const navigate = useNavigate()
 
   return (
-    <div className="header">
-      <div className="logo">
+    <div className="etf-info-view-header">
+      <div
+        className="logo"
+        onClick={() => {
+          navigate('/')
+        }}
+      >
         <img className="logo-image" src="/assets/images/mainview/logo.png"></img>
       </div>
       <div className="search-bar">

@@ -4,9 +4,13 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
   .page {
     font-size: 0.8rem;
     cursor: pointer;
+  }
+  .selected {
+    color: #ef6c35;
   }
   .page-splitter {
     border-right: 0.025rem solid black;
