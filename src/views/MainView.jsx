@@ -19,10 +19,16 @@ import ReactSearchBox from 'react-search-box'
 // components
 import { CountryTab } from '../components/main-view/CountryTab'
 
+// API
+import { getETFList } from '../utils/api/main-view-api'
+
 export function MainView() {
   const navigate = useNavigate()
   const [data, setData] = useState(dummyData.data[0])
   const [country, setCountry] = useState('US')
+
+  getETFList()
+
   return (
     <React.Fragment>
       <div className="main-view">
