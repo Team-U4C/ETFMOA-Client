@@ -17,20 +17,22 @@ export function Carousel({ children }) {
     }
   }, [page])
   return (
-    <React.Fragment>
+    <div className="carousel">
       <div className="carousel-row">
-        <div className="left-arrow-wrap" onClick={() => setPage(1)}>
-          <img className="left-arrow" src="/assets/images/mainview/carousel-left-arrow.png" />
-        </div>
         <div className="carousel-wrap">
           <div className="carousel" ref={slideRef}>
             {children}
           </div>
         </div>
-        <div className="right-arrow-wrap" onClick={() => setPage(2)}>
-          <img className="right-arrow" src="/assets/images/mainview/carousel-right-arrow.png" />
-        </div>
       </div>
-    </React.Fragment>
+      <div className="dot-pagination">
+        {page === 1 && <div className="page-selected"></div>}
+        {page === 1 && <div className="space"></div>}
+        {page === 1 && <div className="page-unselected" onClick={() => setPage(2)}></div>}
+        {page === 2 && <div className="page-unselected" onClick={() => setPage(1)}></div>}
+        {page === 2 && <div className="space"></div>}
+        {page === 2 && <div className="page-selected"></div>}
+      </div>
+    </div>
   )
 }

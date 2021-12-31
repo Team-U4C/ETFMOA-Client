@@ -13,25 +13,18 @@ import { KeywordDetailPage } from '../components/etf-info-view/KeywordDetailPage
 
 import './ETFInfoView.scss'
 
+//API
+import { getDetailInfo } from '../utils/api/etf-info-view-api'
 export function ETFInfoView() {
   const { itemId } = useParams()
   const navigate = useNavigate()
-  const [pageType, setPageType] = useState(2)
+  const [pageType, setPageType] = useState(0)
+  const [data, setData] = useState(null)
+  useEffect(async () => {
+    const detailData = await getDetailInfo(itemId)
+    console.log(detailData)
+  }, [])
 
-  console.log(itemId)
-  // api 테스트
-  fetch(`http://localhost:3000/etf/${itemId}`, {
-    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'include', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res)
-    })
   let pages = [<SingleStockDetailPage />, <ETFDetailPage />, <KeywordDetailPage />]
   return (
     <div className="etfInfo-view">

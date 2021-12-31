@@ -47,6 +47,9 @@
     .price-down {
       color: blue;
     }
+    .price-same {
+      color: black;
+    }
     .increment-block {
       display: flex;
       .updown-img {
@@ -62,7 +65,19 @@
         font-weight: bold;
         color: blue;
       }
+      .increment-same {
+        font-weight: bold;
+        color: black;
+      }
     }
+  }
+  .field-name {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.6rem;
+    line-height: 1.8rem;
+    height: 1.8rem;
+    color: #ef6c35;
   }
   .horizon-bar {
     border: 1px solid #ececec;
@@ -73,10 +88,46 @@
   .bottom-row {
     display: flex;
     justify-content: space-between;
-    .tradingVolume-title {
+    .bottom-row-title {
       font-size: 0.65rem;
       line-height: 0.8rem;
       color: #868686;
+    }
+    .price-up {
+      font-size: 0.65rem;
+      line-height: 0.8rem;
+      color: red;
+    }
+    .price-down {
+      font-size: 0.65rem;
+      line-height: 0.8rem;
+      color: blue;
+    }
+    .price-same {
+      font-size: 0.65rem;
+      line-height: 0.8rem;
+      color: black;
+    }
+    .increment-ratio-up {
+      color: red;
+      font-size: 0.6rem;
+      line-height: 0.8rem;
+      font-style: normal;
+      font-weight: normal;
+    }
+    .increment-ratio-down {
+      color: blue;
+      font-size: 0.6rem;
+      line-height: 0.8rem;
+      font-style: normal;
+      font-weight: normal;
+    }
+    .increment-ratio-same {
+      color: black;
+      font-size: 0.6rem;
+      line-height: 0.8rem;
+      font-style: normal;
+      font-weight: normal;
     }
     .tradingVolume {
       font-size: 0.65rem;

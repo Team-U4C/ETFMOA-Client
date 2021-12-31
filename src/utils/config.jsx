@@ -4,7 +4,7 @@ export const config = {
   FETCH_HEADER_CONFIG: {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'include', // include, *same-origin, omit
+    //credentials: 'include', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json',
     },
@@ -14,4 +14,7 @@ export const config = {
 export const API = {
   GET_ETF_LIST: 'etf/list',
   GET_STOCK_LIST: 'etf/stock',
+  GET_TOP_10: 'etf/top10',
+  GET_INDEX: 'etf/index',
+  GET_DETAIL: 'etf/detail/:name',
 }

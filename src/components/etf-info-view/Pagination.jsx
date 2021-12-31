@@ -12,33 +12,39 @@ export function Pagination({ totalItemNum, itemNumPerPage, onClick }) {
   let lastPage = Number.isInteger(totalItemNum / itemNumPerPage)
     ? totalItemNum / itemNumPerPage
     : Number.parseInt(totalItemNum / itemNumPerPage) + 1
-  for (let i = 1; i <= lastPage; i++) {
+  for (let i = 1; i <= lastPage * 2 - 1; i++) {
     if (currentPage != i) {
-      pageList.push(
-        <div
-          className="page"
-          onClick={() => {
-            setCurrentPage(i)
-          }}
-        >
-          {i}
-        </div>
-      )
+      if (i % 2 == 1) {
+        pageList.push(
+          <div
+            key={i}
+            className="page"
+            onClick={() => {
+              setCurrentPage(i)
+            }}
+          >
+            {i}
+          </div>
+        )
+      } else {
+        pageList.push(<div className="page-splitter" key={i}></div>)
+      }
     } else {
-      pageList.push(
-        <div
-          className="page selected"
-          onClick={() => {
-            setCurrentPage(i)
-          }}
-        >
-          {i}
-        </div>
-      )
-    }
-
-    if (i !== lastPage) {
-      pageList.push(<div className="page-splitter"></div>)
+      if (i % 2 == 1) {
+        pageList.push(
+          <div
+            key={i}
+            className="page selected"
+            onClick={() => {
+              setCurrentPage(i)
+            }}
+          >
+            {i}
+          </div>
+        )
+      } else {
+        pageList.push(<div className="page-splitter" key={i}></div>)
+      }
     }
   }
 

@@ -20,14 +20,60 @@ import ReactSearchBox from 'react-search-box'
 import { CountryTab } from '../components/main-view/CountryTab'
 
 // API
-import { getETFList } from '../utils/api/main-view-api'
+import { getETFList, getStockList, getTop10, getIndex } from '../utils/api/main-view-api'
 
 export function MainView() {
   const navigate = useNavigate()
-  const [data, setData] = useState(dummyData.data[0])
-  const [country, setCountry] = useState('US')
+  const [data, setData] = useState(null)
+  const [items, setItems] = useState([])
+  const [top10DiffRate, setTop10DiffRate] = useState([])
+  const [top10Quant, setTop10Quant] = useState([])
+  const [top10Earn3m, setTop10Earn3m] = useState([])
+  const [top10MarketCap, setTop10MarketCap] = useState([])
+  const [top10WeekSearch, setTop10WeekSearch] = useState([])
 
-  getETFList()
+  const [country, setCountry] = useState('KR')
+
+  useEffect(async () => {
+    const etfData = await getETFList()
+    const etfList = etfData.map((v) => {
+      return { key: v.code, value: v.name }
+    })
+    const stockData = await getStockList()
+    const stockList = stockData.map((v) => {
+      return { key: v.code, value: v.name }
+    })
+    setItems(etfList.concat(stockList))
+
+    // 수익률
+    const top10DiffRateData = await getTop10(country, 'diffrate')
+
+    console.log('수익률')
+    console.log(top10DiffRateData)
+    setTop10DiffRate(top10DiffRateData)
+
+    // 거래량
+    const top10QuantData = await getTop10(country, 'quant')
+    console.log('거래량')
+    console.log(top10QuantData)
+
+    setTop10Quant(top10QuantData)
+
+    // 3개월 수익률
+    const top10Earn3mData = await getTop10(country, 'earn3m')
+    setTop10Earn3m(top10Earn3mData)
+    console.log('3개월 수익률')
+    console.log(top10Earn3mData)
+
+    // 시가총액
+    const top10MarketCapData = await getTop10(country, 'marketcap')
+    setTop10MarketCap(top10MarketCapData)
+    console.log('시가총액')
+    console.log(top10MarketCapData)
+
+    //const indexData = await getIndex()
+    //console.log('index 지수: ' + indexData)
+  }, [])
 
   return (
     <React.Fragment>
@@ -41,124 +87,11 @@ export function MainView() {
           <div className="bar">
             <ReactSearchBox
               placeholder="종목명 혹은 ETF를 검색하세요"
-              fuseConfigs={{}}
+              fuseConfigs={{ threshold: 0.5 }}
               onSelect={(item) => {
                 navigate('/detail' + `/${item.item.value}`)
               }}
-              data={[
-                {
-                  key: '삼성전자',
-                  value: '삼성전자',
-                },
-                {
-                  key: '삼성물산',
-                  value: '삼성물산',
-                },
-                {
-                  key: '삼성전기',
-                  value: '삼성전기',
-                },
-                {
-                  key: '삼성바이오로직스',
-                  value: '삼성바이오로직스',
-                },
-                {
-                  key: '삼성디스플레이',
-                  value: '삼성디스플레이',
-                },
-                {
-                  key: '삼성SDS',
-                  value: '삼성SDS',
-                },
-                {
-                  key: '삼성화재',
-                  value: '삼성화재',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '삼성생명',
-                  value: '삼성생명',
-                },
-                {
-                  key: '엘지전자',
-                  value: '엘지전자',
-                },
-                {
-                  key: '엘지디스플레이',
-                  value: '엘지디스플레이',
-                },
-                {
-                  key: '네이버',
-                  value: '네이버',
-                },
-              ]}
+              data={items}
             />
           </div>
           <div className="button">
@@ -183,15 +116,17 @@ export function MainView() {
           </div>
           <div className="top10-yield">
             <Carousel>
-              {_.map(yieldTop10DummyData.data, (v, i) => (
+              {_.map(top10DiffRate, (v, i) => (
                 <ETFSummaryInfoItem
-                  key={i}
+                  key={v.code}
                   rank={i}
                   name={v.name}
-                  investManager={v.investManager}
-                  incrementRatio={v.incrementRatio}
-                  price={v.price}
-                  increment={v.increment}
+                  investManager={v.manager}
+                  incrementRatio={v.diffrate}
+                  price={v.curval}
+                  increment={v.diffval}
+                  quant={v.quant}
+                  type={'diffRate'}
                   onClick={() => {
                     navigate('/detail' + `/${v.name}`)
                   }}
@@ -207,15 +142,17 @@ export function MainView() {
           </div>
           <div className="top10-yield">
             <Carousel>
-              {_.map(yieldTop10DummyData.data, (v, i) => (
+              {_.map(top10Quant, (v, i) => (
                 <ETFSummaryInfoItem
-                  key={i}
+                  key={v.code}
                   rank={i}
                   name={v.name}
-                  investManager={v.investManager}
-                  incrementRatio={v.incrementRatio}
-                  price={v.price}
-                  increment={v.increment}
+                  investManager={v.manager}
+                  incrementRatio={v.diffrate}
+                  price={v.curval}
+                  increment={v.diffval}
+                  quant={v.quant}
+                  type={'quant'}
                   onClick={() => {
                     navigate('/detail' + `/${v.name}`)
                   }}
@@ -231,15 +168,18 @@ export function MainView() {
           </div>
           <div className="top10-yield">
             <Carousel>
-              {_.map(yieldTop10DummyData.data, (v, i) => (
+              {_.map(top10Earn3m, (v, i) => (
                 <ETFSummaryInfoItem
-                  key={i}
+                  key={v.code}
                   rank={i}
                   name={v.name}
-                  investManager={v.investManager}
-                  incrementRatio={v.incrementRatio}
-                  price={v.price}
-                  increment={v.increment}
+                  investManager={v.manager}
+                  incrementRatio={v.diffrate}
+                  price={v.curval}
+                  increment={v.diffval}
+                  quant={v.quant}
+                  earn3m={v.earn3m}
+                  type={'earn3m'}
                   onClick={() => {
                     navigate('/detail' + `/${v.name}`)
                   }}
@@ -252,15 +192,18 @@ export function MainView() {
           </div>
           <div className="top10-yield">
             <Carousel>
-              {_.map(yieldTop10DummyData.data, (v, i) => (
+              {_.map(top10MarketCap, (v, i) => (
                 <ETFSummaryInfoItem
-                  key={i}
+                  key={v.code}
                   rank={i}
                   name={v.name}
-                  investManager={v.investManager}
-                  incrementRatio={v.incrementRatio}
-                  price={v.price}
-                  increment={v.increment}
+                  investManager={v.manager}
+                  incrementRatio={v.diffrate}
+                  price={v.curval}
+                  increment={v.diffval}
+                  quant={v.quant}
+                  marketCap={v.marketcap}
+                  type={'marketCap'}
                   onClick={() => {
                     navigate('/detail' + `/${v.name}`)
                   }}
