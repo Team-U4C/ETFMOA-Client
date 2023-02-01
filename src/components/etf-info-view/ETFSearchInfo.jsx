@@ -2,7 +2,10 @@ import React from 'react'
 
 import './ETFSearchInfo.scss'
 
-export function ETFSearchInfo() {
+//util
+import { addComma2Number } from '../../utils/commonFunction'
+
+export function ETFSearchInfo({ etfInfo }) {
   return (
     <div className="search-info-row">
       <div className="ci-cell">
@@ -10,12 +13,12 @@ export function ETFSearchInfo() {
           className="ci-image"
           src="/assets/images/components/etf-search-info/miraeasset-ci.png"
         />
-        <div className="etf-name">{'TIGER Top 10'}</div>
+        <div className="etf-name">{etfInfo.name}</div>
       </div>
       <div className="splitter"></div>
       <div className="price-cell">
         <div className="title">{'현재가(원)'}</div>
-        <div className="value">{'13530'}</div>
+        <div className="value">{addComma2Number(etfInfo.curval)}</div>
         <div className="unit-block">
           <img
             className="unit-img"
@@ -47,13 +50,13 @@ export function ETFSearchInfo() {
 
       <div className="tradingVolume">
         <div className="title">{'거래량'}</div>
-        <div className="value">{'2,803,004'}</div>
+        <div className="value">{addComma2Number(etfInfo.quant)}</div>
       </div>
       <div className="splitter"></div>
 
       <div className="market-cap-cell">
         <div className="title">{'시가총액'}</div>
-        <div className="value">{'55,431'}</div>
+        <div className="value">{addComma2Number(etfInfo.marketcap)}</div>
         <div className="unit">{'억'}</div>
       </div>
       <div className="splitter"></div>
