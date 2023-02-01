@@ -59,10 +59,20 @@
           font-style: normal;
           font-weight: normal;
         }
-        .etf-info-table-value {
+        .etf-info-table-value-down {
           font-style: normal;
           font-weight: bold;
           color: #308afe;
+        }
+        .etf-info-table-value-up {
+          font-style: normal;
+          font-weight: bold;
+          color: #dd2626;
+        }
+        .etf-info-table-value-same {
+          font-style: normal;
+          font-weight: bold;
+          color: black;
         }
       }
       .increment-ratio-one-month-row {
@@ -77,10 +87,20 @@
           font-style: normal;
           font-weight: normal;
         }
-        .etf-info-table-value {
+        .etf-info-table-value-up {
           font-style: normal;
           font-weight: bold;
           color: #dd2626;
+        }
+        .etf-info-table-value-down {
+          font-style: normal;
+          font-weight: bold;
+          color: #308afe;
+        }
+        .etf-info-table-value-same {
+          font-style: normal;
+          font-weight: bold;
+          color: black;
         }
       }
       .increment-ratio-three-months-row {
@@ -95,10 +115,20 @@
           font-style: normal;
           font-weight: normal;
         }
-        .etf-info-table-value {
+        .etf-info-table-value-up {
+          font-style: normal;
+          font-weight: bold;
+          color: #dd2626;
+        }
+        .etf-info-table-value-down {
           font-style: normal;
           font-weight: bold;
           color: #308afe;
+        }
+        .etf-info-table-value-same {
+          font-style: normal;
+          font-weight: bold;
+          color: black;
         }
       }
       .increment-ratio-one-year-row {
@@ -113,10 +143,20 @@
           font-style: normal;
           font-weight: normal;
         }
-        .etf-info-table-value {
+        .etf-info-table-value-up {
           font-style: normal;
           font-weight: bold;
           color: #dd2626;
+        }
+        .etf-info-table-value-down {
+          font-style: normal;
+          font-weight: bold;
+          color: #308afe;
+        }
+        .etf-info-table-value-same {
+          font-style: normal;
+          font-weight: bold;
+          color: black;
         }
       }
       .fund-compensation-row {
@@ -211,10 +251,20 @@
           font-style: normal;
           font-weight: normal;
         }
-        .etf-info-table-value {
+        .etf-info-table-value-up {
           font-style: normal;
           font-weight: bold;
           color: #dd2626;
+        }
+        .etf-info-table-value-down {
+          font-style: normal;
+          font-weight: bold;
+          color: #308afe;
+        }
+        .etf-info-table-value-same {
+          font-style: normal;
+          font-weight: bold;
+          color: black;
         }
       }
       .increment-ratio-row {
@@ -229,10 +279,20 @@
           font-style: normal;
           font-weight: normal;
         }
-        .etf-info-table-value {
+        .etf-info-table-value-up {
           font-style: normal;
           font-weight: bold;
           color: #dd2626;
+        }
+        .etf-info-table-value-down {
+          font-style: normal;
+          font-weight: bold;
+          color: #308afe;
+        }
+        .etf-info-table-value-same {
+          font-style: normal;
+          font-weight: bold;
+          color: black;
         }
       }
       .nav-row {
