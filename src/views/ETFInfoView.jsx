@@ -18,14 +18,30 @@ import { getDetailInfo } from '../utils/api/etf-info-view-api'
 export function ETFInfoView() {
   const { itemId } = useParams()
   const navigate = useNavigate()
-  const [pageType, setPageType] = useState(0)
+
+  const [pageType, setPageType] = useState(2)
   const [data, setData] = useState(null)
+  const [relatedETFs, setRelatedETFs] = useState([])
+  const [ETFInfo, setETFInfo] = useState({})
+
   useEffect(async () => {
     const detailData = await getDetailInfo(itemId)
     console.log(detailData)
+    if (detailData.type === 'keyword') {
+      setRelatedETFs(detailData.list)
+      setPageType(2)
+    } else if (detailData.type === 'detail') {
+    } else if (detailData.type === 'etf') {
+      setETFInfo(detailData.info)
+      setPageType(1)
+    }
   }, [])
 
-  let pages = [<SingleStockDetailPage />, <ETFDetailPage />, <KeywordDetailPage />]
+  let pages = [
+    <SingleStockDetailPage />,
+    <ETFDetailPage info={ETFInfo} />,
+    <KeywordDetailPage relatedETFs={relatedETFs} />,
+  ]
   return (
     <div className="etfInfo-view">
       <Header />
