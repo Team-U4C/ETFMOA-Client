@@ -16,5 +16,5 @@ export const API = {
   GET_STOCK_LIST: 'etf/stock',
   GET_TOP_10: 'etf/top10',
   GET_INDEX: 'etf/index',
-  GET_DETAIL: 'etf/detail/:name',
+  GET_DETAIL: 'etf/detail',
 }
