@@ -3,13 +3,14 @@ import React, { useRef, useEffect, useState } from 'react'
 import { select, selectAll, hierarchy, treemap } from 'd3'
 
 import './TreeMap.scss'
-//dummyData
-import {dummyData} from './../../dummyData'
+
+//utils
+import { getColorMap } from '../../utils/commonFunction'
 let stockTiles
 let hierarchyData
-let isDrawn = false
+
 let durationTime = 700
-//TODO: 반응형이 아니라 부모의 WIDTH, HEIGHT를 고정시켜 아래의 함수가 실행되지 않음 
+//TODO: 반응형이 아니라 부모의 WIDTH, HEIGHT를 고정시켜 아래의 함수가 실행되지 않음
 const useResizeObserver = (ref) => {
   const [dimensions, setDimensions] = useState(null)
   useEffect(() => {
@@ -27,13 +28,14 @@ const useResizeObserver = (ref) => {
   return dimensions
 }
 
-export function TreeMap() {
-  const [data, setData] = useState(dummyData.data[0])
+export function TreeMap({ info }) {
+  let isDrawn = false
+
+  const [data, setData] = useState(null)
   const svgRef = useRef()
   const wrapperRef = useRef()
 
   const dimensions = useResizeObserver(wrapperRef)
-
   let drawTreeMap = () => {
     let createTreeMap = treemap().size([dimensions.width, dimensions.height])
 
@@ -53,7 +55,6 @@ export function TreeMap() {
         .attr('transform', (d) => {
           return 'translate(' + d['x0'] + ', ' + d['y0'] + ')'
         })
-
       stockTiles
         .append('rect')
         .attr('class', 'leaf')
@@ -85,7 +86,6 @@ export function TreeMap() {
       stockData.forEach((d) => {
         coorMap.set(d['data']['name'], { x0: d.x0, x1: d.x1, y0: d.y0, y1: d.y1 })
       })
-
       stockTiles
         .transition()
         .duration(durationTime)
@@ -119,7 +119,36 @@ export function TreeMap() {
         })
     }
   }
+  useEffect(() => {
+    let portion = {}
+    let colorMap = getColorMap()
 
+    portion.name = info.name
+    portion.children = []
+
+    if (info.cap01name !== null)
+      portion.children.push({ name: info.cap01name, ratio: info.cap01ratio, color: colorMap[0] })
+    if (info.cap02name !== null)
+      portion.children.push({ name: info.cap02name, ratio: info.cap02ratio, color: colorMap[1] })
+    if (info.cap03name !== null)
+      portion.children.push({ name: info.cap03name, ratio: info.cap03ratio, color: colorMap[2] })
+    if (info.cap04name !== null)
+      portion.children.push({ name: info.cap04name, ratio: info.cap04ratio, color: colorMap[3] })
+    if (info.cap05name !== null)
+      portion.children.push({ name: info.cap05name, ratio: info.cap05ratio, color: colorMap[4] })
+    if (info.cap06name !== null)
+      portion.children.push({ name: info.cap06name, ratio: info.cap06ratio, color: colorMap[5] })
+    if (info.cap07name !== null)
+      portion.children.push({ name: info.cap07name, ratio: info.cap07ratio, color: colorMap[6] })
+    if (info.cap08name !== null)
+      portion.children.push({ name: info.cap08name, ratio: info.cap08ratio, color: colorMap[7] })
+    if (info.cap09name !== null)
+      portion.children.push({ name: info.cap09name, ratio: info.cap09ratio, color: colorMap[8] })
+    if (info.cap10name !== null)
+      portion.children.push({ name: info.cap10name, ratio: info.cap10ratio, color: colorMap[9] })
+    setData(portion)
+
+  }, [])
   useEffect(() => {
     if (!dimensions) return
     drawTreeMap()
@@ -127,6 +156,8 @@ export function TreeMap() {
   }, [dimensions])
 
   useEffect(() => {
+    if (data === null) return
+
     hierarchyData = hierarchy(data)
       .sum((d) => d.ratio)
       .sort((a, b) => b.ratio - a.ratio)
@@ -136,10 +167,8 @@ export function TreeMap() {
   }, [data])
 
   return (
-   // <div className='svg-row'>
-      <div className='svg-wrapper' ref={wrapperRef}>
-        <svg className='treemap-svg' ref={svgRef}></svg>
-      </div> 
-     // </div>
+    <div className="svg-wrapper" ref={wrapperRef}>
+      <svg className="treemap-svg" ref={svgRef}></svg>
+    </div>
   )
 }
