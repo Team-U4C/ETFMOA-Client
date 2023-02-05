@@ -5,7 +5,6 @@ import React, { useState, useEffect } from 'react'
 import './Pagination.scss'
 
 export function Pagination({ totalItemNum, itemNumPerPage, onClickEventHandler, currentPage }) {
-  useEffect(() => {}, [])
   let pageList = []
   let lastPage = Number.isInteger(totalItemNum / itemNumPerPage)
     ? totalItemNum / itemNumPerPage
