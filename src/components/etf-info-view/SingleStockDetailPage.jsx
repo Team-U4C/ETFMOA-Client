@@ -10,6 +10,7 @@ import { Pagination } from './Pagination'
 import { Footer } from '../main-view/Footer'
 
 export function SingleStockDetailPage({ itemId }) {
+  const [page, setPage] = useState(1)
   const [relatedETF, setRelatedETF] = useState([])
   useEffect(()=>{
     // 연관 ETF API 호출
@@ -70,7 +71,7 @@ export function SingleStockDetailPage({ itemId }) {
           <div className="splitter"></div>
           <ETFSearchInfo etfInfo={relatedETF[2]}/>
           <div className="splitter"></div>
-          <Pagination totalItemNum={12} itemNumPerPage={3} />
+          <Pagination totalItemNum={12} itemNumPerPage={3} currentPage={page} onClickEventHandler={clickedPage=>setPage(clickedPage)} />
         </div>
         <ETFSummaryInfoTitle title={'뉴스 '} subTitle={'관련 뉴스입니다.'} />
       </div>
