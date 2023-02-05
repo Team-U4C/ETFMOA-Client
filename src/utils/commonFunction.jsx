@@ -25,3 +25,29 @@ export const addComma2Number = (price) => {
 
   return result.reverse().join('')
 }
+
+export const getColorMap = () => {
+  let colorMap = [
+    '#f05d1d',
+    '#f16529',
+    '#f16e35',
+    '#f27641',
+    '#f37f4d',
+    '#f48758',
+    '#f59064',
+    '#f59870',
+    '#f6a17c',
+    '#f7aa88',
+    '#f8b294',
+    '#f9bba0',
+    '#f9c3ac',
+    '#faccb8',
+    '#fbd4c4',
+    '#fcddcf',
+    '#fde5db',
+    '#fdeee7',
+    '#fef6f3',
+    '#ffffff',
+  ]
+  return colorMap
+}
