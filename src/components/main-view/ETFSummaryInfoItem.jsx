@@ -62,7 +62,7 @@ export const ETFSummaryInfoItem = ({
                 <div className="increment-block">
                   <img className="updown-img" src="/assets/images/mainview/down.png" />
                   <div className="increment-down text-sm">
-                    {addComma2Number(increment.substring(1))}
+                    {addComma2Number(increment)}
                   </div>
                 </div>
               )
