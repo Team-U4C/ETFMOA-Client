@@ -33,7 +33,7 @@ export function MainView() {
   const [top10WeekSearch, setTop10WeekSearch] = useState([])
 
   const [country, setCountry] = useState('KR')
-
+  const [keyword, setKeyword] = useState('')
   useEffect(async () => {
     const etfData = await getETFList()
     const etfList = etfData.map((v) => {
@@ -75,14 +75,26 @@ export function MainView() {
           <div className="bar">
             <ReactSearchBox
               placeholder="종목명 혹은 ETF를 검색하세요"
+              autoFocus={true}
               fuseConfigs={{ threshold: 0.5 }}
               onSelect={(item) => {
                 navigate('/detail' + `/${item.item.value}`)
               }}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  navigate('/detail' + `/${e.target.defaultValue}`)
+                }
+              }}
+              onChange={value=>{
+                setKeyword(value)
+              }}
+              clearOnSelect={true}
               data={items}
             />
           </div>
-          <div className="button">
+          <div className="button" onClick={
+           () => navigate('/detail' + `/${keyword}`)
+          }>
             <img className="button-image" src="/assets/images/mainview/search-svg.svg"></img>
           </div>
         </div>
