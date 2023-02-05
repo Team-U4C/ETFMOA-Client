@@ -12,7 +12,7 @@ export async function getDetailInfo(name) {
         type: 'detail'
       }
     }
-  }else if(
+  }else(
     dummy = {
       code: 200,
       data: {
