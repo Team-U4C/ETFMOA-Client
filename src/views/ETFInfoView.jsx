@@ -23,19 +23,18 @@ export function ETFInfoView() {
   const [data, setData] = useState(null)
   const [relatedETFs, setRelatedETFs] = useState([])
   const [ETFInfo, setETFInfo] = useState({})
-
   useEffect(async () => {
     const detailData = await getDetailInfo(itemId)
-    console.log(detailData)
     if (detailData.type === 'keyword') {
       setRelatedETFs(detailData.list)
       setPageType(2)
     } else if (detailData.type === 'detail') {
+      setPageType(0)
     } else if (detailData.type === 'etf') {
       setETFInfo(detailData.info)
       setPageType(1)
     }
-  }, [])
+  }, [itemId])
 
   let pages = [
     <SingleStockDetailPage />,
