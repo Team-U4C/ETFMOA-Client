@@ -15,7 +15,7 @@ import * as _ from 'lodash'
 import './MainView.scss'
 import { useNavigate } from 'react-router-dom'
 import ReactSearchBox from 'react-search-box'
-
+//import ReactSearchBox from '../utils/custom_node_modules/react-search-box/react-search-box.umd'
 // components
 import { CountryTab } from '../components/main-view/CountryTab'
 
@@ -47,33 +47,21 @@ export function MainView() {
 
     // 수익률
     const top10DiffRateData = await getTop10(country, 'diffrate')
-
-    console.log('수익률')
-    console.log(top10DiffRateData)
     setTop10DiffRate(top10DiffRateData)
 
     // 거래량
     const top10QuantData = await getTop10(country, 'quant')
-    console.log('거래량')
-    console.log(top10QuantData)
-
     setTop10Quant(top10QuantData)
 
     // 3개월 수익률
     const top10Earn3mData = await getTop10(country, 'earn3m')
     setTop10Earn3m(top10Earn3mData)
-    console.log('3개월 수익률')
-    console.log(top10Earn3mData)
 
     // 시가총액
     const top10MarketCapData = await getTop10(country, 'marketcap')
     setTop10MarketCap(top10MarketCapData)
-    console.log('시가총액')
-    console.log(top10MarketCapData)
 
-    //const indexData = await getIndex()
-    //console.log('index 지수: ' + indexData)
-  }, [])
+  }, [country])
 
   return (
     <React.Fragment>
@@ -202,7 +190,7 @@ export function MainView() {
                   price={v.curval}
                   increment={v.diffval}
                   quant={v.quant}
-                  marketCap={v.marketcap}
+                  marketCap={v.marketCap}
                   type={'marketCap'}
                   onClick={() => {
                     navigate('/detail' + `/${v.name}`)
