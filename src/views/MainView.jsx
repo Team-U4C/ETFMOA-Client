@@ -219,15 +219,18 @@ export function MainView() {
           </div>
           <div className="top10-yield">
             <Carousel>
-              {_.map(yieldTop10DummyData.data, (v, i) => (
+              {_.map(top10Quant, (v, i) => (
                 <ETFSummaryInfoItem
-                  key={i}
+                key={v.code}
                   rank={i}
                   name={v.name}
-                  investManager={v.investManager}
-                  incrementRatio={v.incrementRatio}
-                  price={v.price}
-                  increment={v.increment}
+                  investManager={v.manager}
+                  incrementRatio={v.diffrate}
+                  price={v.curval}
+                  increment={v.diffval}
+                  quant={v.quant}
+                  marketCap={v.marketCap}
+                  type={'diffRate'}
                   onClick={() => {
                     navigate('/detail' + `/${v.name}`)
                   }}
