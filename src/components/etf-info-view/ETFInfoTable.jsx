@@ -76,28 +76,36 @@ export function ETFInfoTable({ info }) {
           <div className="etf-info-splitter"></div>
           <div className="fund-compensation-row">
             <div className="etf-info-table-title">{'펀드보수'}</div>
-            <div className="etf-info-table-value">{'미구연'}</div>
+            <div className="etf-info-table-value">{`연 ${info.fee}%`}</div>
           </div>
           <div className="etf-info-splitter"></div>
           <div className="disparate-ratio-row">
             <div className="etf-info-table-title">{'괴리율'}</div>
-            <div className="etf-info-table-value">{'미구연'}</div>
+            <div className="etf-info-table-value">{`${info.disparateRatio}%`}</div>
           </div>
           <div className="etf-info-splitter"></div>
           <div className="share-ratio-row">
             <div className="etf-info-table-title">{'분배율'}</div>
-            <div className="etf-info-table-value">{'미구연'}</div>
+            <div className="etf-info-table-value">{`${info.dividends}%`}</div>
           </div>
           <div className="etf-info-splitter"></div>
           <div className="category-row">
             <div className="etf-info-table-title">{'카테고리'}</div>
-            <div className="etf-info-table-value">{'미구연'}</div>
+            <div className="etf-info-table-value">{info.category}</div>
           </div>
         </div>
         <div className="right-side">
           <div className="increment-row">
-            <div className="etf-info-table-title">{'증감액'}</div>
-            <div className="etf-info-table-value">{'전일대비?'}</div>
+            <div className="etf-info-table-title">{'보유증감'}</div>
+            {info.diffrate !== '0.000' ? (
+              parseFloat(info.diffrate) > 0 ? (
+                <div className="etf-info-table-value-up">{`${addComma2Number(info.increment)}`}</div>
+              ) : (
+                <div className="etf-info-table-value-down">{`${addComma2Number(info.increment)}`}</div>
+              )
+            ) : (
+              <div className="etf-info-table-value-same">{`${addComma2Number(info.increment)}`}</div>
+            )}
           </div>
           <div className="etf-info-splitter"></div>
           <div className="increment-ratio-row">
@@ -125,14 +133,14 @@ export function ETFInfoTable({ info }) {
           <div className="etf-info-splitter"></div>
           <div className="transaction-amount-row">
             <div className="etf-info-table-title">{'거래대금'}</div>
-            <div className="etf-info-table-value">{'미구현 백만원'}</div>
+            <div className="etf-info-table-value">{`${addComma2Number(info.amount)}백만`}</div>
           </div>
           <div className="etf-info-splitter"></div>
           <div className="market-cap-row">
             <div className="etf-info-table-title">{'시가총액'}</div>
             <div className="etf-info-table-value">{`${addComma2Number(
               info.marketcap
-            )}단위 미정`}</div>
+            )}억`}</div>
           </div>
           <div className="etf-info-splitter"></div>
           <div className="tracked-index-row">
