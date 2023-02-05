@@ -11,21 +11,21 @@ export function DashBoard() {
       <div className="dashboard-block">
         <DashBoardItem
           indexName={'KOSPI'}
-          indexValue={'2962.42'}
-          increment={'-34.79'}
-          incrementRatio={'-1.16%'}
+          indexValue={'2480.40'}
+          increment={'11.52'}
+          incrementRatio={'0.47%'}
         />
         <DashBoardItem
           indexName={'NASDAQ'}
-          indexValue={'15973.86'}
-          increment={'4.63'}
-          incrementRatio={'1.17%'}
+          indexValue={'12,006.96'}
+          increment={'-193.86'}
+          incrementRatio={'-1.59%'}
         />
         <DashBoardItem
           indexName={'심천종합'}
-          indexValue={'2477.02'}
-          increment={'27.06'}
-          incrementRatio={'1.11%'}
+          indexValue={'2163.28'}
+          increment={'-9.21'}
+          incrementRatio={'-0.42%'}
         />
       </div>
       <div className="dashboard-bottom-line"></div>
