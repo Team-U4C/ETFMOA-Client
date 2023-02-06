@@ -1,3 +1,12 @@
+@mixin increment-cell{
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+@mixin unit-style{
+  font-size: 0.8rem;
+  line-height: 0.9rem;
+}
 .search-info-row {
   display: flex;
   flex-direction: row;
@@ -50,10 +59,17 @@
         width: 0.6rem;
         height: 0.3rem;
       }
-      .unit {
-        font-size: 0.8rem;
-        line-height: 0.9rem;
+      .unit-up {
         color: #dd2626;
+        @include unit-style;
+      }
+      .unit-down{
+        color: blue;
+        @include unit-style;
+      }
+      .unit-same{
+        color: black;
+        @include unit-style;
       }
     }
   }
@@ -71,12 +87,20 @@
       line-height: 0.9rem;
       margin-bottom: 0.85rem;
     }
-    .value {
-      font-size: 0.9rem;
-      line-height: 0.9rem;
-      color: #358dfe;
-      margin-bottom: 1.2rem;
+
+    .increment-up {
+      color: red;
+      @include increment-cell;
     }
+    .increment-down {
+      color: blue;
+      @include increment-cell;
+    }
+    .increment-same {
+      color: black;
+      @include increment-cell;
+    }
+
     .unit {
       font-size: 0.6rem;
       line-height: 0.9rem;
@@ -91,11 +115,17 @@
     width: 6rem;
     height: 5rem;
     padding-top: 1.7rem;
-    .value {
-      font-size: 0.9rem;
-      line-height: 0.9rem;
-      color: #dd2626;
-      margin-bottom: 1.2rem;
+    .increment-up {
+      color: red;
+      @include increment-cell;
+    }
+    .increment-down {
+      color: blue;
+      @include increment-cell;
+    }
+    .increment-same {
+      color: black;
+      @include increment-cell;
     }
     .unit {
       font-size: 0.6rem;
@@ -111,11 +141,17 @@
     width: 6rem;
     height: 5rem;
     padding-top: 1.7rem;
-    .value {
-      font-size: 0.9rem;
-      line-height: 0.9rem;
-      color: #dd2626;
-      margin-bottom: 1.2rem;
+    .increment-up {
+      color: red;
+      @include increment-cell;
+    }
+    .increment-down {
+      color: blue;
+      @include increment-cell;
+    }
+    .increment-same {
+      color: black;
+      @include increment-cell;
     }
     .unit {
       font-size: 0.6rem;
