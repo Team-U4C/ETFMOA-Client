@@ -33,9 +33,9 @@ export function TreeMap({ info }) {
 
   const [data, setData] = useState(null)
   const svgRef = useRef()
-  const wrapperRef = useRef()
 
-  const dimensions = useResizeObserver(wrapperRef)
+  const dimensions = useResizeObserver(svgRef)
+  
   let drawTreeMap = () => {
     let createTreeMap = treemap().size([dimensions.width, dimensions.height])
 
@@ -123,7 +123,6 @@ export function TreeMap({ info }) {
     let portion = {}
     let colorMap = getColorMap()
 
-    portion.name = info.name
     portion.children = []
     if (info.portion.cap01name !== null)
       portion.children.push({ name: info.portion.cap01name, ratio: info.portion.cap01ratio, color: colorMap[0] })
@@ -176,7 +175,7 @@ export function TreeMap({ info }) {
   }, [data])
 
   return (
-    <div className="svg-wrapper" ref={wrapperRef}>
+    <div className="svg-wrapper">
       <svg className="treemap-svg" ref={svgRef}></svg>
     </div>
   )
