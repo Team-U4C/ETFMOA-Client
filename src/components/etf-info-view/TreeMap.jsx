@@ -8,9 +8,7 @@ import './TreeMap.scss'
 import { getColorMap } from '../../utils/commonFunction'
 let stockTiles
 let hierarchyData
-
-let durationTime = 700
-//TODO: 반응형이 아니라 부모의 WIDTH, HEIGHT를 고정시켜 아래의 함수가 실행되지 않음
+let durationTime = 1000
 const useResizeObserver = (ref) => {
   const [dimensions, setDimensions] = useState(null)
   useEffect(() => {
@@ -29,19 +27,18 @@ const useResizeObserver = (ref) => {
 }
 
 export function TreeMap({ info }) {
-  let isDrawn = false
 
   const [data, setData] = useState(null)
+  const [isDrawn, setIsDrawn] = useState(false);
   const svgRef = useRef()
 
   const dimensions = useResizeObserver(svgRef)
   
   let drawTreeMap = () => {
     let createTreeMap = treemap().size([dimensions.width, dimensions.height])
-
     createTreeMap(hierarchyData)
-
     let stockData = hierarchyData.leaves()
+
     if (!isDrawn) {
       if (stockTiles !== undefined) {
         stockTiles.selectAll('rect').remove()
@@ -155,12 +152,11 @@ export function TreeMap({ info }) {
     if (info.portion.cap15name !== null)
       portion.children.push({ name: info.portion.cap15name, ratio: info.portion.cap15ratio, color: colorMap[14] })
     setData(portion)
-
   }, [])
   useEffect(() => {
     if (!dimensions) return
     drawTreeMap()
-    isDrawn = true
+    setIsDrawn(true);
   }, [dimensions])
 
   useEffect(() => {
