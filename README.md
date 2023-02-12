@@ -1,7 +1,7 @@
 # Data Visualization D3.js와 React를 이용한 ETF 정보 조회 서비스
 
 ## Demo
-https://main--sparkling-biscuit-cbc06a.netlify.app/detail/TIGER%20%EC%9D%B4%EB%A8%B8%EC%A7%95%EB%A7%88%EC%BC%93MSCI%EB%A0%88%EB%B2%84%EB%A6%AC%EC%A7%80(%ED%95%A9%EC%84%B1%20H)
+https://sparkling-biscuit-cbc06a.netlify.app/
 
 ## 서비스 소개 
 - **ETF**를 이루고 있는 종목들의 비율과 상승하락을 **treemap형식**으로 한 눈에 확인할 수 있는 서비스  (ex. https://finviz.com/map.ashx?t=sec)
