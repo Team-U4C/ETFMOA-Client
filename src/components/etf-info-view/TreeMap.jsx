@@ -10,7 +10,7 @@ let stockTiles
 let hierarchyData
 let durationTime = 1000
 const useResizeObserver = (ref) => {
-  const [dimensions, setDimensions] = useState(null)
+  const [dimensions, setDimensions] = useState(new DOMRect(0, 0, 1400, 800));
   useEffect(() => {
     const observeTarget = ref.current
     const resizeObserver = new ResizeObserver((entries) => {
@@ -28,7 +28,7 @@ const useResizeObserver = (ref) => {
 
 export function TreeMap({ info }) {
 
-  const [data, setData] = useState(null)
+  let data = null;
   const [isDrawn, setIsDrawn] = useState(false);
   const svgRef = useRef()
 
@@ -121,54 +121,22 @@ export function TreeMap({ info }) {
     let colorMap = getColorMap()
 
     portion.children = []
-    if (info.portion.cap01name !== null)
-      portion.children.push({ name: info.portion.cap01name, ratio: info.portion.cap01ratio, color: colorMap[0] })
-    if (info.portion.cap02name !== null)
-      portion.children.push({ name: info.portion.cap02name, ratio: info.portion.cap02ratio, color: colorMap[1] })
-    if (info.portion.cap03name !== null)
-      portion.children.push({ name: info.portion.cap03name, ratio: info.portion.cap03ratio, color: colorMap[2] })
-    if (info.portion.cap04name !== null)
-      portion.children.push({ name: info.portion.cap04name, ratio: info.portion.cap04ratio, color: colorMap[3] })
-    if (info.portion.cap05name !== null)
-      portion.children.push({ name: info.portion.cap05name, ratio: info.portion.cap05ratio, color: colorMap[4] })
-    if (info.portion.cap06name !== null)
-      portion.children.push({ name: info.portion.cap06name, ratio: info.portion.cap06ratio, color: colorMap[5] })
-    if (info.portion.cap07name !== null)
-      portion.children.push({ name: info.portion.cap07name, ratio: info.portion.cap07ratio, color: colorMap[6] })
-    if (info.portion.cap08name !== null)
-      portion.children.push({ name: info.portion.cap08name, ratio: info.portion.cap08ratio, color: colorMap[7] })
-    if (info.portion.cap09name !== null)
-      portion.children.push({ name: info.portion.cap09name, ratio: info.portion.cap09ratio, color: colorMap[8] })
-    if (info.portion.cap10name !== null)
-      portion.children.push({ name: info.portion.cap10name, ratio: info.portion.cap10ratio, color: colorMap[9] })
-    if (info.portion.cap11name !== null)
-      portion.children.push({ name: info.portion.cap11name, ratio: info.portion.cap11ratio, color: colorMap[10] })
-    if (info.portion.cap12name !== null)
-      portion.children.push({ name: info.portion.cap12name, ratio: info.portion.cap12ratio, color: colorMap[11] })
-    if (info.portion.cap13name !== null)
-      portion.children.push({ name: info.portion.cap13name, ratio: info.portion.cap13ratio, color: colorMap[12] })
-    if (info.portion.cap14name !== null)
-      portion.children.push({ name: info.portion.cap14name, ratio: info.portion.cap14ratio, color: colorMap[13] })
-    if (info.portion.cap15name !== null)
-      portion.children.push({ name: info.portion.cap15name, ratio: info.portion.cap15ratio, color: colorMap[14] })
-    setData(portion)
+    for(let i = 1; i <= 15; i++){
+      const capName = info.portion[`cap${i.toString().padStart(2, '0')}name`];
+      const capRatio = info.portion[`cap${i.toString().padStart(2, '0')}ratio`];
+      if(capName !== null){
+        portion.children.push({name: capName, ratio: capRatio, color: colorMap[i-1]});
+      }
+    }
+    hierarchyData = hierarchy(portion)
+    .sum((d) => d.ratio)
+    .sort((a, b) => b.ratio - a.ratio)
+
   }, [])
   useEffect(() => {
-    if (!dimensions) return
     drawTreeMap()
     setIsDrawn(true);
   }, [dimensions])
-
-  useEffect(() => {
-    if (data === null) return
-
-    hierarchyData = hierarchy(data)
-      .sum((d) => d.ratio)
-      .sort((a, b) => b.ratio - a.ratio)
-
-    if (!dimensions) return
-    drawTreeMap()
-  }, [data])
 
   return (
     <div className="svg-wrapper">
